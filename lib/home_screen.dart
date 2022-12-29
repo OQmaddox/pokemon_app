@@ -25,14 +25,17 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Press Button'),
-          onPressed: (){
-            fetchPokemonData();
-          },
-        ),
-      ),
+      body: Column(
+        children: [
+          Expanded(child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 1.4
+          ), itemCount: listPokedex.length,
+          itemBuilder: (context,index){
+            return Card();
+          },))
+        ],
+      )
     );
   }
 
